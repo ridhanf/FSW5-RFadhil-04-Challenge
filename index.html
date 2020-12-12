@@ -1,31 +1,37 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-  <header>
-    <a href="">< </a>
-    <img src="./img/logo1.png" alt="">
-    <h1>ROCK PAPER SCISSORS</h1>
-  </header>
-  <main>
-    <div>
-      <h2>PLAYER 1</h2>
-      <img src="./img/batu1.png" alt="">
-      <img src="./img/kertas1.png" alt="">
-      <img src="./img/gunting1.png" alt="">
-    </div>
-    <div>
-      <h2>COM</h2>
-      <img src="./img/batu2.png" alt="">
-      <img src="./img/kertas2.png" alt="">
-      <img src="./img/gunting2.png" alt="">
-    </div>
-    <img src="./img/refresh2.png" onclick="refresh()" alt="">
-  </main>
-  <script src="./js/app.js"></script>
-</body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <header>
+      <a href=""><</a>
+      <img src="./img/logo.png" alt="">
+      <h1>ROCK PAPER SCISSORS</h1>
+    </header>
+    <main>
+      <div id="player1">
+        <h2>PLAYER 1</h2>
+        <img src="./img/batu.png" alt=""><br>
+        <img src="./img/kertas.png" alt=""><br>
+        <img src="./img/gunting.png" alt="">
+      </div>
+      <p id="versus">V S</p>
+      <div id="computer">
+        <h2>COM</h2>
+        <img src="./img/batu.png" alt=""><br>
+        <img src="./img/kertas.png" alt=""><br>
+        <img src="./img/gunting.png" alt="">
+      </div>
+      <img id="refresh-button" src="./img/refresh.png" onclick="refresh()" alt="">
+    </main>
+    <script src="./js/app.js">
+      var refresh = document.getElementById("refresh-button")
+    </script>
+  </body>
+
 </html>
