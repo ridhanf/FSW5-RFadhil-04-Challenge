@@ -31,11 +31,11 @@ header h1 {
 main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 15em 20em 5em;
+  grid-template-rows: 15em 17em 5em;
   grid-template-areas: 
         ". player1 .       computer  ."
         ". player1 versus  computer  ."
-        ". .       refresh .         .";
+        ". player1 refresh computer  .";
 }
 
 main img {
