@@ -4,35 +4,50 @@ var player1Sign = document.getElementsByClassName("player1Sign")
 var computerSign = document.getElementsByClassName("computerSign")
 var randomIdxPlayer1Before = 0;
 var randomIdxComputerBefore = 0;
+var winDisplay = document.getElementById("versus");
 
-const ubahWarnaLatar = (list, idx) => {
+const ubahWarna = (list, idx) => {
   list[idx].style.backgroundColor = "gray";
 }
 
-const resetWarnaLatar = (list, idx) => {
+const resetWarna = (list, idx) => {
   list[idx].style.backgroundColor =  "#AE876B";
+}
+
+const winStatus = (player1, computer) => {
+  var win = "PLAYER 1\nWIN!";
+  var lose = "COM\nWIN!";
+  var draw = "DRAW";
+  if (player1 == 0 && computer == 2) {
+    winDisplay.innerHTML = `<p class="win-status">${win}</p>`;
+  } else if (player1 == 2 && computer == 0) {
+    winDisplay.innerHTML = `<p class="win-status">${lose}</p>`;
+  } else if (player1 > computer) {
+    winDisplay.innerHTML = `<p class="win-status">${win}</p>`;
+  } else if (player1 < computer) {
+    winDisplay.innerHTML = `<p class="win-status">${lose}</p>`;
+  } else {
+    winDisplay.innerHTML = `<p class="win-status">${draw}</p>`;
+  }
 }
 
 const getSign = () => {  
   const randomIdxPlayer1 = Math.floor(Math.random() * 3);
   const randomIdxComputer = Math.floor(Math.random() * 3);
-  // console.log("Player1:" + listSign[randomIdxPlayer1] + "\t Computer:" + listSign[randomIdxComputer]);
-  ubahWarnaLatar(player1Sign, randomIdxPlayer1);
-  ubahWarnaLatar(computerSign, randomIdxComputer);
+  ubahWarna(player1Sign, randomIdxPlayer1);
+  ubahWarna(computerSign, randomIdxComputer);
   if (timesRun > 0) {
-    resetWarnaLatar(player1Sign, randomIdxPlayer1Before);
-    resetWarnaLatar(computerSign, randomIdxComputerBefore);
+    resetWarna(player1Sign, randomIdxPlayer1Before);
+    resetWarna(computerSign, randomIdxComputerBefore);
   }
   randomIdxPlayer1Before = randomIdxPlayer1;
   randomIdxComputerBefore = randomIdxComputer;
   timesRun += 1;
   if (timesRun == 25) {
     clearInterval(intervalGenerator);
-    outputPlayer1 = listSign[randomIdxPlayer1];
-    outputComputer = listSign[randomIdxComputer];
-    ubahWarnaLatar(player1Sign, randomIdxPlayer1);
-    ubahWarnaLatar(computerSign, randomIdxComputer);
-    // console.log("Player1:" + outputPlayer1 + "\t Computer:" + outputComputer);
+    ubahWarna(player1Sign, randomIdxPlayer1);
+    ubahWarna(computerSign, randomIdxComputer);
+    winStatus(randomIdxPlayer1, randomIdxComputer)  
     timesRun = 0;
   }
 }
