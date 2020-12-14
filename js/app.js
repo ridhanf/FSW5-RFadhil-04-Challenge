@@ -35,7 +35,6 @@ class Player {
         timesRun = 0;
       }
     }, 50);
-    return this.signIdx;
   }
 }
 
